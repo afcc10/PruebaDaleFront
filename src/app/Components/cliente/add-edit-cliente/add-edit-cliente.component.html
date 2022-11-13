@@ -1,0 +1,59 @@
+<form [formGroup]="formClient" novalidate> 
+    <div class="mb-3">
+        <label for="cedula" class="form-label">Cedula</label>
+        <input type="text" class="form-control" name="cedula" placeholder="Escribe cedula"
+        required id="cedula" formControlName="cedula" >
+
+        <div *ngIf="formClient.controls['cedula'].invalid && (formClient.controls['cedula'].dirty || formClient.controls['cedula'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['cedula'].errors['required'] || 
+                        formClient.controls['cedula'].errors['whitespace']" 
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" placeholder="Escribe nombre"
+        required id="nombre" formControlName="nombre" >
+
+        <div *ngIf="formClient.controls['nombre'].invalid && (formClient.controls['nombre'].dirty || formClient.controls['nombre'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['nombre'].errors['required'] || 
+                        formClient.controls['nombre'].errors['whitespace']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>       
+
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" name="apellido" placeholder="Escribe apellido"
+        required id="apellido" formControlName="apellido" >
+
+        <div *ngIf="formClient.controls['apellido'].invalid && (formClient.controls['apellido'].dirty || formClient.controls['apellido'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['apellido'].errors['required'] || 
+                        formClient.controls['apellido'].errors['whitespace']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>  
+
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control" name="telefono" placeholder="Escribe telefono"
+        required id="telefono" formControlName="telefono" >
+
+        <div *ngIf="formClient.controls['telefono'].invalid && (formClient.controls['telefono'].dirty || formClient.controls['telefono'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['telefono'].errors['required'] || 
+                        formClient.controls['telefono'].errors['whitespace']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>  
+
+        <br>
+        <button (click)="addCliente()" *ngIf="cliente.id==0" class="btn btn-primary">Add</button>
+        <button (click)="UpdateCliente()" *ngIf="cliente.id!=0" class="btn btn-primary">Update</button>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+<form [formGroup]="formClient" novalidate> 
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre prodcuto</label>
+        <input type="text" class="form-control" name="nombre" placeholder="Escribe nombre del producto"
+        required id="nombre" formControlName="nombre" >
+
+        <div *ngIf="formClient.controls['nombre'].invalid && (formClient.controls['nombre'].dirty || formClient.controls['nombre'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['nombre'].errors['required'] || 
+                        formClient.controls['nombre'].errors['whitespace']" 
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>
+
+        <label for="valorUnitario" class="form-label">Valor unitario</label>
+        <input type="number" class="form-control" name="valorUnitario"
+        required id="valorUnitario" formControlName="valorUnitario" >
+
+        <div *ngIf="formClient.controls['valorUnitario'].invalid && (formClient.controls['valorUnitario'].dirty || formClient.controls['valorUnitario'].touched)"
+            class="text-danger">
+            <div *ngIf="formClient.controls['valorUnitario'].errors['required'] || 
+                        formClient.controls['valorUnitario'].errors['whitespace'] ||
+                        formClient.controls['valorUnitario'].errors['pattern']"
+                class="text-danger">
+               Error en el campo
+            </div>
+        </div>       
+
+        <br>
+        <button (click)="addProducto()" *ngIf="producto.id==0" class="btn btn-primary">Add</button>
+        <button (click)="UpdateProducto()" *ngIf="producto.id!=0" class="btn btn-primary">Update</button>
+    </div>
+</form>
