@@ -14,10 +14,13 @@ import { ShowClienteComponent } from './Components/cliente/show-cliente/show-cli
 import { AddEditClienteComponent } from './Components/cliente/add-edit-cliente/add-edit-cliente.component';
 import { ClienteApiService } from './Services/cliente-api.service';
 import { AppRoutingModule } from './app-routing.module';
+import { VentaComponent } from './Components/venta/venta.component';
+import { ShowVentaComponent } from './Components/venta/show-venta/show-venta.component';
 
 const routes: Routes = [
   { path: 'Producto', component: ProductoComponent },
   { path: 'Cliente', component: ClienteComponent },
+  { path: 'Venta', component: VentaComponent },
   { path: '', redirectTo: '/Producto', pathMatch: 'full' },
 ]
 
@@ -29,7 +32,9 @@ const routes: Routes = [
     ShowProductoComponent,
     ClienteComponent,
     ShowClienteComponent,
-    AddEditClienteComponent
+    AddEditClienteComponent,
+    VentaComponent,
+    ShowVentaComponent
   ],
   imports: [
     BrowserModule,

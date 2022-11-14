@@ -15,7 +15,7 @@
 
         <label for="valorUnitario" class="form-label">Valor unitario</label>
         <input type="number" class="form-control" name="valorUnitario"
-        required id="valorUnitario" formControlName="valorUnitario" >
+        required id="valorUnitario" formControlName="valorUnitario" min="0">
 
         <div *ngIf="formClient.controls['valorUnitario'].invalid && (formClient.controls['valorUnitario'].dirty || formClient.controls['valorUnitario'].touched)"
             class="text-danger">

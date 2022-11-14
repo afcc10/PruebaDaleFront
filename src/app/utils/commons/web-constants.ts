@@ -13,7 +13,7 @@ export const ENDPOINTS = {
         return `${BASE_URL}Producto/Update`;
     },
     getByIdProductos : (id: number): string => {
-        return `${BASE_URL}Producto/GetById/${id}`;
+        return `${BASE_URL}Producto/GetById?id=${id}`;
     },
     deleteByIdProductos : (id: number): string => {
         return `${BASE_URL}Producto/Delete?id=${id}`;
@@ -28,7 +28,7 @@ export const ENDPOINTS = {
         return `${BASE_URL}Cliente/Update`;
     },
     getByIdClientes : (id: number): string => {
-        return `${BASE_URL}Cliente/GetById/${id}`;
+        return `${BASE_URL}Cliente/GetById?id=${id}`;
     },
     deleteByIdCliente : (id: number): string => {
         return `${BASE_URL}Cliente/Delete?id=${id}`;

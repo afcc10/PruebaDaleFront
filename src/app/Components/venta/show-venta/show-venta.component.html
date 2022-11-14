@@ -1,0 +1,60 @@
+<form [formGroup]="formClient" novalidate> 
+    <div class="row mb-4">
+        <div class="col-lg-6 col-12">
+            <label for="idCliente" class="form-label">Cliente </label>
+    
+            <select class="form-control select" id="idCliente" required formControlName="idCliente">
+                <option value="" class="spanSelect" selected>Selecciona un cliente
+                </option>
+                <option *ngFor="let item of listCliente" [value]="item.id">{{item.nombre}}
+                </option>
+            </select>
+    
+            <div *ngIf="formClient.controls['idCliente'].invalid && (formClient.controls['idCliente'].dirty || formClient.controls['idCliente'].touched)"
+                class="text-danger">
+                <div *ngIf="formClient.controls['idCliente'].errors['required']" class="text-danger">
+                    El cliente es requerido
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-12">
+            <label for="idProducto" class="form-label">Producto</label>
+    
+            <select class="form-control select" id="idProducto" required formControlName="idProducto" #producto
+            (change)="getProducto(producto.value)">
+                <option value="" class="spanSelect" selected>Selecciona tu producto</option>
+                <option *ngFor="let item of listProducto" [value]="item.id">{{item.nombre}}
+                </option>
+            </select>
+    
+    
+            <div *ngIf="formClient.controls['idProducto'].invalid && (formClient.controls['idProducto'].dirty || formClient.controls['idProducto'].touched)"
+                class="text-danger">
+                <div *ngIf="formClient.controls['idProducto'].errors['required']" class="text-danger">
+                    El producto es requerido.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+            <label for="valorUnitario" class="form-label">Valor unitario</label>
+            <input type="number" class="form-control" name="valorUnitario"
+            id="valorUnitario" formControlName="valorUnitario" [readonly]="true">            
+        </div>
+        <div class="col-lg-6 col-12">
+            <label for="cantidad" class="form-label">Cantidad</label>
+            <input type="number" class="form-control" name="cantidad"
+            required id="cantidad" formControlName="cantidad" min="0" max="999">
+
+            <div *ngIf="formClient.controls['cantidad'].invalid && (formClient.controls['cantidad'].dirty || formClient.controls['cantidad'].touched)"
+                class="text-danger">
+                <div *ngIf="formClient.controls['cantidad'].errors['required'] || 
+                            formClient.controls['cantidad'].errors['whitespace'] ||
+                            formClient.controls['cantidad'].errors['pattern']"
+                    class="text-danger">
+                Error en el campo
+                </div>
+            </div>   
+        </div>
+    </div>
+</form>
