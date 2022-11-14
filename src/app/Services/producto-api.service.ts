@@ -20,22 +20,22 @@ export class ProductoApiService {
     ).toPromise().then(data => data);
   }
 
-  async registerProductos(student : Producto):Promise<Partial<BasicResponse<Producto>>>{    
+  async registerProductos(producto : Producto):Promise<Partial<BasicResponse<Producto>>>{    
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    const body=JSON.stringify(student);
+    const body=JSON.stringify(producto);
     return await this.http.post<BasicResponse<Producto>>(ENDPOINTS.registerProductos(),body,httpOptions).pipe(
       retry(1),
       catchError(handleError)
     ).toPromise().then(data => data);
   }
 
-  async updateProductos(cliente : Producto):Promise<Partial<BasicResponse<Producto>>>{    
+  async updateProductos(producto : Producto):Promise<Partial<BasicResponse<Producto>>>{    
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    const body=JSON.stringify(cliente);
+    const body=JSON.stringify(producto);
     return await this.http.put<BasicResponse<Producto>>(ENDPOINTS.updateProductos(),body,httpOptions).pipe(
       retry(1),
       catchError(handleError)

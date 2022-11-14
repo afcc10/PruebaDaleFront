@@ -32,5 +32,8 @@ export const ENDPOINTS = {
     },
     deleteByIdCliente : (id: number): string => {
         return `${BASE_URL}Cliente/Delete?id=${id}`;
-    }
+    },
+    registerVentas: (): string => {
+        return `${BASE_URL}Venta/Create`;
+    },
 }

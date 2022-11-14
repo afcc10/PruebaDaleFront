@@ -20,11 +20,11 @@ export class ClienteApiService {
     ).toPromise().then(data => data);
   }
 
-  async registerClientes(student : Cliente):Promise<Partial<BasicResponse<Cliente>>>{    
+  async registerClientes(cliente : Cliente):Promise<Partial<BasicResponse<Cliente>>>{    
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    const body=JSON.stringify(student);
+    const body=JSON.stringify(cliente);
     return await this.http.post<BasicResponse<Cliente>>(ENDPOINTS.registerClientes(),body,httpOptions).pipe(
       retry(1),
       catchError(handleError)

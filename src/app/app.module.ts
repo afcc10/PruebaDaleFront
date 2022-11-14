@@ -16,6 +16,7 @@ import { ClienteApiService } from './Services/cliente-api.service';
 import { AppRoutingModule } from './app-routing.module';
 import { VentaComponent } from './Components/venta/venta.component';
 import { ShowVentaComponent } from './Components/venta/show-venta/show-venta.component';
+import { VentaApiService } from './Services/venta-api.service';
 
 const routes: Routes = [
   { path: 'Producto', component: ProductoComponent },
@@ -44,7 +45,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ProductoApiService,ClienteApiService],
+  providers: [ProductoApiService,ClienteApiService,VentaApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

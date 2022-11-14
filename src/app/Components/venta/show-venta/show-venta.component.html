@@ -1,4 +1,4 @@
-<form [formGroup]="formClient" novalidate> 
+<form [formGroup]="formClient" novalidate #f="ngForm"> 
     <div class="row mb-4">
         <div class="col-lg-6 col-12">
             <label for="idCliente" class="form-label">Cliente </label>
@@ -44,7 +44,8 @@
         <div class="col-lg-6 col-12">
             <label for="cantidad" class="form-label">Cantidad</label>
             <input type="number" class="form-control" name="cantidad"
-            required id="cantidad" formControlName="cantidad" min="0" max="999">
+            required id="cantidad" formControlName="cantidad" min="0" max="999"
+            (change)="getTotal()">
 
             <div *ngIf="formClient.controls['cantidad'].invalid && (formClient.controls['cantidad'].dirty || formClient.controls['cantidad'].touched)"
                 class="text-danger">
@@ -56,5 +57,16 @@
                 </div>
             </div>   
         </div>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <label for="valorTotal" class="form-label">Valor total</label>
+                <input type="number" class="form-control" name="valorTotal"
+                id="valorTotal" formControlName="valorTotal" [readonly]="true"> 
+              </div>              
+            </div>
+        </div>
+        <br>        
+        <button (click)="addVenta()" [disabled]="f.invalid" class="btn btn-primary">Add</button>        
     </div>
 </form>
